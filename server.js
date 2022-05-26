@@ -29,5 +29,5 @@ app.use(express.urlencoded({ extended: true }));
 
 //sync sequelize
 sequelize.sync({ force: false }).then(() => {
-    app.listen(PORT, () => console.log(`Houston we're live, listening on port ${PORT}`));
+    app.listen(PORT, () => console.log(`Houston we're live! Listening on port ${PORT}`));
 });
