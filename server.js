@@ -1,6 +1,10 @@
 //required modules
 const express = require('express');
 const session = require('express-session');
+const path = require('path');
+const exphdlbrs = require('express-handlebars');
+const hdlbrs = exphdlbrs.create({});
+const routes = require('./controllers')
 
 //setting up sequelize and sequelize sessions
 const sequelize = require('./config/connection');
@@ -21,11 +25,18 @@ const sess = {
     })
 };
 
-//middleware
+//middleware for session
 app.use(session(sess));
+
+//setting up handlebars
+app.engine('handlebars', hdlbrs.engine);
+app.set('view engine', 'handlebars');
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(express.static(path.join(__dirname, 'public')))
+
+app.use(routes);
 
 //sync sequelize
 sequelize.sync({ force: false }).then(() => {
