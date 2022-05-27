@@ -1,5 +1,4 @@
 //added login and sign-up boilerplate-style code from wk14 mini project
-
 const loginFormHandler = async (event) => {
     event.preventDefault();
     console.log("click");
@@ -55,3 +54,5 @@ document
 document
     .querySelector('.register-form')
     .addEventListener('submit', registerFormHandler);
+
+
