@@ -2,6 +2,7 @@
 
 const loginFormHandler = async (event) => {
     event.preventDefault();
+    console.log("click");
 
     // Collect values from the login form. Trim trailing spaces.
     const email = document.querySelector('#email-input').value.trim();
@@ -9,7 +10,7 @@ const loginFormHandler = async (event) => {
 
     if (email && password) {
         // Send a POST request to the API endpoint
-        const response = await fetch('/login', {
+        const response = await fetch('/api/login', {
             method: 'POST',
             body: JSON.stringify({ email, password }),
             headers: { 'Content-Type': 'application/json' },
@@ -26,13 +27,14 @@ const loginFormHandler = async (event) => {
 
 const registerFormHandler = async (event) => {
     event.preventDefault();
+    console.log("click");
 
     const name = document.querySelector('#username-register').value.trim();
     const email = document.querySelector('#email-register').value.trim();
     const password = document.querySelector('#password-register').value.trim();
 
     if (name && email && password) {
-        const response = await fetch('/login', {
+        const response = await fetch('/api/new-user', {
             method: 'POST',
             body: JSON.stringify({ name, email, password }),
             headers: { 'Content-Type': 'application/json' },
@@ -48,12 +50,8 @@ const registerFormHandler = async (event) => {
 
 document
     .querySelector('.login-form')
-    .addEventListener('submit',
-        console.log(click),
-        loginFormHandler);
+    .addEventListener('submit', loginFormHandler);
 
 document
     .querySelector('.register-form')
-    .addEventListener('submit',
-        console.log("click"),
-        registerFormHandler);
+    .addEventListener('submit', registerFormHandler);

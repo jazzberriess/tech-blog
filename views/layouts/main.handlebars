@@ -13,7 +13,11 @@
     <h1>Tech Blog</h1>
     <nav>
         <a href="/">Home</a>
+        {{#if loggedIn}}
+        <a href="/logout">Logout</a>
+        {{else}}
         <a href="/login">Login</a>
+        {{/if}}
         <a href="/dashboard">Dashboard</a>
         {{!-- INSERT SOME NAV STUFF HERE --}}
     </nav>
