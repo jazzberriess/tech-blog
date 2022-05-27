@@ -2,8 +2,8 @@
 const express = require('express');
 const session = require('express-session');
 const path = require('path');
-const exphdlbrs = require('express-handlebars');
-const hdlbrs = exphdlbrs.create({});
+const exphbs = require('express-handlebars');
+const hbs = exphbs.create({ defaultLayout: 'main' });
 const routes = require('./controllers')
 
 //setting up sequelize and sequelize sessions
@@ -29,7 +29,7 @@ const sess = {
 app.use(session(sess));
 
 //setting up handlebars
-app.engine('handlebars', hdlbrs.engine);
+app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 
 app.use(express.json());

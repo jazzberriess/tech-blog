@@ -4,8 +4,8 @@ const loginFormHandler = async (event) => {
     event.preventDefault();
 
     // Collect values from the login form. Trim trailing spaces.
-    const email = document.querySelector('#email-login').value.trim();
-    const password = document.querySelector('#password-login').value.trim();
+    const email = document.querySelector('#email-input').value.trim();
+    const password = document.querySelector('#password-input').value.trim();
 
     if (email && password) {
         // Send a POST request to the API endpoint
@@ -17,29 +17,29 @@ const loginFormHandler = async (event) => {
 
         if (response.ok) {
             // If successful, redirect the browser to the profile page
-            document.location.replace('/profile');
+            document.location.replace('/');
         } else {
             alert(response.statusText);
         }
     }
 };
 
-const signupFormHandler = async (event) => {
+const registerFormHandler = async (event) => {
     event.preventDefault();
 
-    const name = document.querySelector('#name-signup').value.trim();
-    const email = document.querySelector('#email-signup').value.trim();
-    const password = document.querySelector('#password-signup').value.trim();
+    const name = document.querySelector('#username-register').value.trim();
+    const email = document.querySelector('#email-register').value.trim();
+    const password = document.querySelector('#password-register').value.trim();
 
     if (name && email && password) {
-        const response = await fetch('/api/users', {
+        const response = await fetch('/login', {
             method: 'POST',
             body: JSON.stringify({ name, email, password }),
             headers: { 'Content-Type': 'application/json' },
         });
 
         if (response.ok) {
-            document.location.replace('/profile');
+            document.location.replace('/');
         } else {
             alert(response.statusText);
         }
@@ -48,8 +48,12 @@ const signupFormHandler = async (event) => {
 
 document
     .querySelector('.login-form')
-    .addEventListener('submit', loginFormHandler);
+    .addEventListener('submit',
+        console.log(click),
+        loginFormHandler);
 
 document
-    .querySelector('.signup-form')
-    .addEventListener('submit', signupFormHandler);
+    .querySelector('.register-form')
+    .addEventListener('submit',
+        console.log("click"),
+        registerFormHandler);

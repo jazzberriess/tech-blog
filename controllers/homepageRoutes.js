@@ -3,23 +3,46 @@ const { Blog, User } = require('../models');
 
 router.get('/', async (req, res) => {
     try {
-        const blogPosts = await Blog.findAll({
-            include: [
-                {
-                    model: User
-                }
-            ]
+        // console.log(name);
+        // res.render("homepage");
+
+        // console.log(Blog, "line 7");
+        const blogPosts = await Blog.findAll().catch((error) => {
+
+            res.json(error);
+            // include: [
+            //     {
+            //         model: Blog,
+            //         attributes: ["name", "description"],
+            //     }
+            // ]
         });
 
         const blogs = blogPosts.map((blog) => blog.get({ plain: true }));
-        res.render('homepage', {
+        console.log(blogs, "line 18");
+        console.log(blogs.name);
+        return res.render('homepage', {
             blogs
         })
+
     } catch (error) {
         res.status(500).json(error)
 
     }
 
 });
+
+router.get('/login', async (req, res) => {
+    try {
+        if (req.session.loggedIn) {
+            res.redirect('/');
+            return;
+        }
+        res.render('login')
+    } catch (error) {
+        console.log(error)
+    }
+
+})
 
 module.exports = router;
