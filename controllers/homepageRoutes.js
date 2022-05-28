@@ -45,4 +45,19 @@ router.get('/login', async (req, res) => {
 
 })
 
+router.get('/blog/:id', async (req, res) => {
+
+    const getBlog = await Blog.findByPk(req.params.id, {
+        include: [{
+            model: User,
+            attributes: ['name']
+        }
+        ]
+    },
+    )
+    const blogPost = getBlog.get({ plain: true });
+    res.render('blog', {
+        blogPost
+    })
+});
 module.exports = router;

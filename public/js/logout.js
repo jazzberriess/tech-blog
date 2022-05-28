@@ -1,4 +1,4 @@
-const logoutButton = document.getElementById("logout");
+// const logoutButton = document.getElementById("logout");
 
 const logout = async (event) => {
     event.preventDefault();
