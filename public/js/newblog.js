@@ -2,23 +2,24 @@
 
 const newBlogHandler = async (event) => {
     event.preventDefault();
-    console.log('click!')
+    // console.log('click!')
 
-    const title = document.getElementById('#blog-title-input').value.trim();
-    const description = document.getElementById('#blog-content-input').value.trim();
+    const title = document.querySelector('#blog-title-input').value.trim();
+    const description = document.querySelector('#blog-content-input').value.trim();
 
-    console.log(title);
-    console.log(description);
-    const res = await fetch('/dashboard', {
+    console.log(title, "line 10");
+    console.log(description, "line 11");
+    const res = await fetch('/dashboard/blog', {
         method: 'POST',
         body: JSON.stringify({ title, description }),
         headers: { 'Content-Type': 'application/json' },
     })
     if (res.ok) {
-        location.reload();
+        // location.reload();
+        document.location.replace('/dashboard');
     } else {
-        alert(response.statusText);
+        alert(res.statusText);
     }
 }
 
-document.querySelector('.new-blog-post').addEventListener('submit', console.log('click!'), newBlogHandler);
+document.querySelector('.new-blog-post').addEventListener('submit', newBlogHandler);

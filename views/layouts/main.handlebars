@@ -13,14 +13,14 @@
     <h1>Tech Blog</h1>
     <nav>
         <a href="/">Home</a>
-        {{#if loggedIn}}
+        {{!-- {{#if loggedIn}}
         <button id="logout">Logout</button>
         {{else}}
         <a href="/login">Login</a>
-        {{!-- <button id="logout">Logout</button> --}}
-        {{/if}}
-        {{!-- <a href="/login">Login</a>
-        <button id="logout">Logout</button> --}}
+        <button id="logout">Logout</button>
+        {{/if}} --}}
+        <a href="/login">Login</a>
+        <button id="logout">Logout</button>
         <a href="/dashboard">Dashboard</a>
         {{!-- INSERT SOME NAV STUFF HERE --}}
     </nav>
@@ -39,9 +39,9 @@
 
     </footer>
     {{!-- script for logged in users only --}}
-    {{#if loggedIn}}
-    <script src="/js/logout.js"></script>
-    {{/if}}
+
+    <script src="./js/logout.js"></script>
+
 </body>
 
 </html>
