@@ -2,7 +2,7 @@ const { Blog } = require("../models");
 
 const blogData = [
     {
-        name: "Test Blog Post",
+        title: "Test Blog Post",
         description: "This is a test blog post because things weren't working.",
         user_id: "1"
     }

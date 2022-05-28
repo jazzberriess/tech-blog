@@ -1,6 +1,23 @@
 <h1>This is a test dashboard</h1>
 
 {{#each userPosts as |post|}}
-<p>{{name}}</p>
-<p>{{description}}</p>
+<p>{{post.title}}</p>
+<p>{{post.description}}</p>
 {{/each}}
+
+<form class="new-blog-post">
+    <div class="row">
+        <div class="twelve columns">
+            <label for="blog-title">Awesome Title Here</label>
+            <input class="u-full-width" placeholder="A title goes here" id="blog-title-input">
+        </div>
+        <div class="twelve columns">
+            <label for="blog-content">Your Amazing Blog Post Here</label>
+            <textarea class="u-full-width" placeholder="This is the start of something amazing …"
+                id="blog-content-input"></textarea>
+        </div>
+        <input class="button-primary" type="submit" value="Submit">
+    </div>
+</form>
+
+<script src="../public/js/newblog.js"></script>
