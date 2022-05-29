@@ -13,9 +13,11 @@ router.get('/', async (req, res) => {
             console.log(req.session.userId, "line 10");
 
             const userPosts = userPostData.map((blog) => blog.get({ plain: true }));
+            const loggedIn = req.session.loggedIn;
             console.log(userPosts, "line 12");
             console.log(userPosts.title, "line 14");
             return res.render('dashboard', {
+                loggedIn,
                 userPosts
             })
         } else {
@@ -33,6 +35,7 @@ router.get('/blog/:id', async (req, res) => {
     try {
         if (req.session.loggedIn) {
             const userPostData = await Blog.findOne({ where: { id: req.params.id }, raw: true })
+            const loggedIn = req.session.loggedIn;
             // const userPostData = await Blog.findAll();
             console.log(userPostData, "line 8");
             console.log(req.session.userId, "line 10");
@@ -41,6 +44,7 @@ router.get('/blog/:id', async (req, res) => {
             // console.log(userPosts, "line 12");
             // console.log(userPosts.title, "line 14");
             return res.render('updateBlog', {
+                loggedIn,
                 userPostData
             })
         } else {

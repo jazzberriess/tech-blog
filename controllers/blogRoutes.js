@@ -22,7 +22,9 @@ router.get('/:id', async (req, res) => {
     const blogComments = blogCommentData.map((comment) => comment.get({ plain: true }));
     //render the blog post and comments
     const blogPost = await getBlog.get({ plain: true });
+    const loggedIn = req.session.loggedIn;
     res.render('blog', {
+        loggedIn,
         blogPost,
         blogComments
     })

@@ -32,6 +32,7 @@ router.post('/', async (req, res) => {
 router.get('/:id', async (req, res) => {
     if (req.session.loggedIn) {
         const userCommentData = await Comment.findOne({ where: { id: req.params.id }, raw: true })
+        const loggedIn = req.session.loggedIn;
         // const userPostData = await Blog.findAll();
         console.log(userCommentData, "line 33");
         console.log(req.session.userId, "line 34");
@@ -40,6 +41,7 @@ router.get('/:id', async (req, res) => {
         // console.log(userPosts, "line 12");
         // console.log(userPosts.title, "line 14");
         return res.render('comment', {
+            loggedIn,
             userCommentData
         })
 
