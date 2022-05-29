@@ -12,10 +12,27 @@ const updateCommentHandler = async (event) => {
         headers: { 'Content-Type': 'application/json' },
     })
     if (res.ok) {
-        document.location.replace('/comment/1');
+        document.location.replace('/');
     } else {
         alert(res.statusText);
     }
 };
 
 document.querySelector('.update-comment').addEventListener('submit', updateCommentHandler);
+
+const deleteCommentHandler = async (event) => {
+    event.preventDefault();
+    const comment_id = window.location.toString().split('/').pop();
+
+    const res = await fetch(`/comment/${comment_id}`, {
+        method: 'DELETE',
+        headers: { 'Content-Type': 'application/json' },
+    })
+    if (res.ok) {
+        document.location.replace('/');
+    } else {
+        alert(res.statusText);
+    }
+};
+
+document.querySelector("#delete-button").addEventListener('click', deleteCommentHandler);
