@@ -1,0 +1,19 @@
+<h1>Your previous comment</h1>
+{{!-- {{userCommentData as |comment|}} --}}
+<p>{{userCommentData.userName}} - {{userCommentData.comment}}</p>
+<p>Comment created on: {{userCommentData.createdAt}}</p>
+
+<form class="update-comment">
+    <div class="row">
+        <div class="twelve columns">
+            <label for="comment-content">Your Updated Comment</label>
+            <textarea class="u-full-width" placeholder="This is the start of something amazing …"
+                id="updated-comment">Updated comment goes here</textarea>
+        </div>
+        <input class="button-primary" type="submit" value="Update">
+    </div>
+</form>
+
+<button id="delete-button">Delete</button>
+
+<script src="../js/updatecomments.js"></script>

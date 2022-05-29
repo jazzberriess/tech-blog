@@ -31,3 +31,22 @@ const commentHandler = async (event) => {
 
 document.querySelector('.comment-form').addEventListener('submit', commentHandler);
 
+// const updateCommentHandler = async (event) => {
+//     event.preventDefault();
+
+//     const updatedComment = document.querySelector("#updated-comment").value.trim();
+//     const blog_id = window.location.toString().split('/').pop();
+
+//     const res = await fetch(`/comment/${blog_id}`, {
+//         method: 'PUT',
+//         body: JSON.stringify({ updatedComment }),
+//         headers: { 'Content-Type': 'application/json' },
+//     })
+//     if (res.ok) {
+//         document.location.replace('/');
+//     } else {
+//         alert(res.statusText);
+//     }
+// };
+
+// document.querySelector('.update-comment').addEventListener('submit', updateCommentHandler);

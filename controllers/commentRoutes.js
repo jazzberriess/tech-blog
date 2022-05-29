@@ -26,30 +26,46 @@ router.post('/', async (req, res) => {
     }
 })
 
-// router.get('/blog/:id', async (req, res) => {
+router.get('/:id', async (req, res) => {
+    if (req.session.loggedIn) {
+        const userCommentData = await Comment.findOne({ where: { id: req.params.id }, raw: true })
+        // const userPostData = await Blog.findAll();
+        console.log(userCommentData, "line 33");
+        console.log(req.session.userId, "line 34");
 
-//     // if (!req.session.loggedIn) {
-//     //     document.redirect('/login');
-//     // }
+        // const userPosts = userPostData.map((blog) => blog.get({ plain: true }));
+        // console.log(userPosts, "line 12");
+        // console.log(userPosts.title, "line 14");
+        return res.render('comment', {
+            userCommentData
+        })
 
-//     try {
-//         // const blogCommentData = await Comment.findAll({ where: { blog_id: 2 } })
-//         // console.log(blogCommentData, "line 56");
+    };
+});
 
-//         const blogCommentData = await Comment.findAll();
+router.put('/:id', async (req, res) => {
+    const user_id = req.session.userId;
+    // const id = req.params.id;
+    const { comment } = req.body;
+    console.log(req.body);
 
-//         console.log(blogCommentData, "line 56");
+    try {
+        const updateComment = await Comment.update({
 
-//         const blogComments = blogCommentData.map((comment) => comment.get({ plain: true }));
-
-//         console.log(blogComments, "line60");
-//         return res.render('blog', {
-//             blogComments
-//         })
-
-//     } catch (error) {
-
-//     }
-// })
+            comment,
+            user_id,
+        },
+            {
+                where: {
+                    id: req.params.id,
+                }
+            })
+        res.status(200).json(updateComment);
+        console.log(updateComment, "line62");
+    } catch (error) {
+        res.status(500).json(error);
+        console.log(error);
+    }
+})
 
 module.exports = router;

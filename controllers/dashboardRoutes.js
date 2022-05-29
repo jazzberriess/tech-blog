@@ -95,4 +95,18 @@ router.put('/blog/:id', async (req, res) => {
     }
 })
 
+router.delete('/blog/:id', async (req, res) => {
+    try {
+        const destroyBlogPost = await Blog.destroy({
+            where: {
+                id: req.params.id
+            }
+        });
+        res.status(200).json(destroyBlogPost);
+    } catch (error) {
+        res.status(400).json(error)
+        console.error(error);
+    }
+})
+
 module.exports = router;

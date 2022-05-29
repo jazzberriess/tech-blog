@@ -5,8 +5,10 @@
 {{!-- {{/each}} --}}
 
 {{#each blogComments as |comment|}}
-<p>{{comment.userName}} - {{comment.comment}}</p>
-<p>Comment created on: {{comment.createdAt}}</p>
+<a href='/comment/{{comment.id}}'>
+    <p>{{comment.userName}} - {{comment.comment}}</p>
+    <p>Comment created on: {{comment.createdAt}}</p>
+</a>
 {{/each}}
 
 <p>Leave a comment!</p>

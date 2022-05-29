@@ -5,12 +5,12 @@ const Comment = require("./Comment");
 
 User.hasMany(Blog, {
     foreignKey: 'user_id',
-    onDelete: 'SET NULL',
+    onDelete: 'SET NULL'
 });
 
 User.hasMany(Comment, {
     foreignKey: 'user_id',
-    onDelete: 'SET NULL',
+    onDelete: 'SET NULL'
 });
 
 Blog.belongsTo(User, {
@@ -18,7 +18,8 @@ Blog.belongsTo(User, {
 });
 
 Blog.hasMany(Comment, {
-    foreignKey: 'user_id'
+    foreignKey: 'user_id',
+    onDelete: 'SET NULL'
 })
 
 module.exports = {
