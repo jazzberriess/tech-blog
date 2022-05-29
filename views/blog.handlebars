@@ -1,8 +1,10 @@
-<p>{{blogPost.title}}</p>
+<p>{{blogPost.title}} by {{blogPost.user.name}}</p>
 <p>{{blogPost.description}}</p>
+<p>Created on: {{blogPost.createdAt}}</p>
 
 {{#each blogComments as |comment|}}
 <p>{{comment.userName}} - {{comment.comment}}</p>
+<p>Comment created on: {{comment.createdAt}}</p>
 {{/each}}
 
 <p>Leave a comment!</p>
