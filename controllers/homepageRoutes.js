@@ -3,25 +3,18 @@ const { Blog, User } = require('../models');
 
 router.get('/', async (req, res) => {
     try {
-        // console.log(name);
-        // res.render("homepage");
 
-        // console.log(Blog, "line 7");
         const blogPosts = await Blog.findAll().catch((error) => {
 
             res.json(error);
-            // include: [
-            //     {
-            //         model: Blog,
-            //         attributes: ["name", "description"],
-            //     }
-            // ]
         });
 
         const blogs = blogPosts.map((blog) => blog.get({ plain: true }));
+        const loggedIn = req.session.loggedIn;
         console.log(blogs, "line 18");
         console.log(blogs.name);
         return res.render('homepage', {
+            loggedIn,
             blogs
         })
 

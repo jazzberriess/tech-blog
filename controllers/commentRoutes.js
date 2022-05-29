@@ -44,11 +44,15 @@ router.get('/:id', async (req, res) => {
 });
 
 router.put('/:id', async (req, res) => {
+
+    if (!req.session.loggedIn) {
+        res.redirect('/login');
+    }
+
     const user_id = req.session.userId;
     // const id = req.params.id;
     const { comment } = req.body;
     console.log(req.body);
-
     try {
         const updateComment = await Comment.update({
 
@@ -69,6 +73,11 @@ router.put('/:id', async (req, res) => {
 })
 
 router.delete('/:id', async (req, res) => {
+
+    if (!req.session.loggedIn) {
+        res.redirect('/login');
+    }
+
     try {
         const destroyComment = await Comment.destroy({
             where: {

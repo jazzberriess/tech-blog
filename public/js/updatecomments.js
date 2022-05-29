@@ -1,8 +1,12 @@
+
+
 const updateCommentHandler = async (event) => {
     event.preventDefault();
 
     const comment = document.querySelector("#updated-comment").value.trim();
     const comment_id = window.location.toString().split('/').pop();
+
+    // const blog_id = await Comment.findOne({ where: { id: comment_id } })
 
     console.log(comment, "line 7");
 
@@ -12,7 +16,8 @@ const updateCommentHandler = async (event) => {
         headers: { 'Content-Type': 'application/json' },
     })
     if (res.ok) {
-        document.location.replace('/');
+
+        document.location.replace(document.referrer);
     } else {
         alert(res.statusText);
     }
@@ -29,7 +34,7 @@ const deleteCommentHandler = async (event) => {
         headers: { 'Content-Type': 'application/json' },
     })
     if (res.ok) {
-        document.location.replace('/');
+        document.location.replace('/blog/');
     } else {
         alert(res.statusText);
     }
