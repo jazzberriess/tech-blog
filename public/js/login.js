@@ -27,19 +27,3 @@ const loginFormHandler = async (event) => {
 document
     .querySelector('.login-form')
     .addEventListener('submit', loginFormHandler);
-
-
-// const logout = async () => {
-//     const res = await fetch('api/users/logout', {
-//         method: 'POST',
-//         headers: { 'Content-Type': 'application/json' }
-//     });
-
-//     if (res.ok) {
-//         document.location.replace('/');
-//     } else {
-//         alert(response.statusText)
-//     }
-// };
-
-// document.querySelector('#logout').addEventListener('click', console.log("click"), logout);

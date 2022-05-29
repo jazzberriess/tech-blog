@@ -6,6 +6,10 @@ const registerFormHandler = async (event) => {
     const email = document.querySelector('#email-register').value.trim();
     const password = document.querySelector('#password-register').value.trim();
 
+    if (!name || !email || !password) {
+        alert("Please enter a username, email and password.");
+    }
+
     if (name && email && password) {
         const response = await fetch('/api/new-user', {
             method: 'POST',
