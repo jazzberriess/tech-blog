@@ -2,13 +2,16 @@
 <p>{{blogPost.description}}</p>
 
 <p>Leave a comment!</p>
-<form id="comment-form">
+<form class="comment-form">
     <div class="row">
         <div class="six columns">
             <label for="commentUserName">Your name</label>
+            <input class="u-full-width" type="text" placeholder="Your cool username" id="user-name-input">
             <label for="comment-text">Comment</label>
             <textarea class="u-full-width" placeholder="What a great post …" id="comment-text"></textarea>
         </div>
     </div>
     <input class="button-primary" type="submit" value="Submit">
 </form>
+
+<script src="../js/comments.js"></script>
