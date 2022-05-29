@@ -26,30 +26,30 @@ router.post('/', async (req, res) => {
     }
 })
 
-router.get('/blog/:id', async (req, res) => {
+// router.get('/blog/:id', async (req, res) => {
 
-    // if (!req.session.loggedIn) {
-    //     document.redirect('/login');
-    // }
+//     // if (!req.session.loggedIn) {
+//     //     document.redirect('/login');
+//     // }
 
-    try {
-        // const blogCommentData = await Comment.findAll({ where: { blog_id: 2 } })
-        // console.log(blogCommentData, "line 56");
+//     try {
+//         // const blogCommentData = await Comment.findAll({ where: { blog_id: 2 } })
+//         // console.log(blogCommentData, "line 56");
 
-        const blogCommentData = await Comment.findAll();
+//         const blogCommentData = await Comment.findAll();
 
-        console.log(blogCommentData, "line 56");
+//         console.log(blogCommentData, "line 56");
 
-        const blogComments = blogCommentData.map((comment) => comment.get({ plain: true }));
+//         const blogComments = blogCommentData.map((comment) => comment.get({ plain: true }));
 
-        console.log(blogComments, "line60");
-        return res.render('blog', {
-            blogComments
-        })
+//         console.log(blogComments, "line60");
+//         return res.render('blog', {
+//             blogComments
+//         })
 
-    } catch (error) {
+//     } catch (error) {
 
-    }
-})
+//     }
+// })
 
 module.exports = router;
