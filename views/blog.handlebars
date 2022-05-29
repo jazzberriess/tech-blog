@@ -1,6 +1,10 @@
 <p>{{blogPost.title}}</p>
 <p>{{blogPost.description}}</p>
 
+{{#each blogComments as |comment|}}
+<p>{{comment.comment}}</p>
+{{/each}}
+
 <p>Leave a comment!</p>
 <form class="comment-form">
     <div class="row">
