@@ -2,7 +2,7 @@
 
 {{#each blogs as |blog|}}
 <a href="/blog/{{blog.id}}">
-    <h4>{{blog.title}} {{blog.createdAt}}</h4>
+    <h4>{{blog.title}} {{format_date blog.createdAt}}</h4>
     <p>{{blog.description}}</p>
 </a>
 {{/each}}

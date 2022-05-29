@@ -1,11 +1,11 @@
 <p>{{blogPost.title}} by {{blogPost.user.name}}</p>
 <p>{{blogPost.description}}</p>
-<p>Created on: {{blogPost.createdAt}}</p>
+<p>Created on: {{format_date blogPost.createdAt}}</p>
 
 {{#each blogComments as |comment|}}
 <a href='/comment/{{comment.id}}'>
     <p>{{comment.userName}} - {{comment.comment}}</p>
-    <p>Comment created on: {{comment.createdAt}}</p>
+    <p>Comment created on: {{format_date comment.createdAt}}</p>
 </a>
 {{/each}}
 
