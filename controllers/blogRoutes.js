@@ -11,7 +11,7 @@ router.get('/:id', async (req, res) => {
         ]
     },
     );
-    const blogCommentData = await Comment.findAll();
+    const blogCommentData = await Comment.findAll({ where: { blog_id: req.params.id } });
 
     console.log(blogCommentData, "line 56");
 

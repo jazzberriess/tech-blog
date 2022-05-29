@@ -12,7 +12,7 @@ const commentHandler = async (event) => {
         console.log(comment, "line 10");
         console.log(blog_id);
 
-        const res = await fetch(`/blog/${blog_id}`, {
+        const res = await fetch('/comment', {
             method: 'POST',
             body: JSON.stringify({ userName, comment, blog_id }),
             headers: { 'Content-Type': 'application/json' },
