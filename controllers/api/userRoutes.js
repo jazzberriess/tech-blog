@@ -1,14 +1,18 @@
+//required modules
 const router = require('express').Router();
 const bcrypt = require('bcrypt');
 const { User } = require('../../models');
 
+//new user route
 router.post('/new-user', async (req, res) => {
 
+    //create new username, password and hash the password
     try {
         const userData = await User.create({
             name: req.body.name,
             email: req.body.email,
-            password: await bcrypt.hash(req.body.password, 10),
+            // password: await bcrypt.hash(req.body.password, 10),
+            password: req.body.password
         })
         console.log(userData)
         req.session.save(() => {
@@ -25,6 +29,7 @@ router.post('/new-user', async (req, res) => {
     }
 });
 
+//log in route
 router.post('/login', async (req, res) => {
     try {
         const userData = await User.findOne({ where: { email: req.body.email } })
@@ -34,7 +39,7 @@ router.post('/login', async (req, res) => {
             res.status(400).json({ message: "Invalid username or password. Please try again." });
             return;
         }
-
+        //password validation
         const passwordVal = await bcrypt.compare(
             req.body.password,
             userData.password,
@@ -62,6 +67,7 @@ router.post('/login', async (req, res) => {
     }
 });
 
+//logout route
 router.post('/logout', (req, res) => {
 
     if (req.session.loggedIn) {
@@ -71,14 +77,6 @@ router.post('/logout', (req, res) => {
     } else {
         res.status(404).send();
     }
-
-    // if (req.session.loggedIn) {
-    //     req.session.destroy(() => {
-    //         res.status(204).end({ userData, message: "You are now logged out!" });
-    //     });
-    // } else {
-    //     res.status(404).end();
-    // }
 });
 
 module.exports = router;

@@ -1,6 +1,8 @@
+//required modules
 const router = require('express').Router();
-const { Blog, Comment } = require('../models')
+const { Comment } = require('../models')
 
+//post route for comments
 router.post('/', async (req, res) => {
 
     try {
@@ -26,6 +28,7 @@ router.post('/', async (req, res) => {
     }
 })
 
+//retrieve comment by id
 router.get('/:id', async (req, res) => {
     if (req.session.loggedIn) {
         const userCommentData = await Comment.findOne({ where: { id: req.params.id }, raw: true })
@@ -43,6 +46,7 @@ router.get('/:id', async (req, res) => {
     };
 });
 
+//update comment by id
 router.put('/:id', async (req, res) => {
 
     if (!req.session.loggedIn) {
@@ -72,6 +76,7 @@ router.put('/:id', async (req, res) => {
     }
 })
 
+//delete comment by id
 router.delete('/:id', async (req, res) => {
 
     if (!req.session.loggedIn) {

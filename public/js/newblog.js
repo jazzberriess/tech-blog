@@ -1,4 +1,4 @@
-// const newBlogPost = document.querySelector('.new-blog-post');
+//new blog post fetch/post req
 
 const newBlogHandler = async (event) => {
     event.preventDefault();
@@ -9,6 +9,7 @@ const newBlogHandler = async (event) => {
 
     console.log(title, "line 10");
     console.log(description, "line 11");
+    //post request for new blog post
     const res = await fetch('/dashboard/blog', {
         method: 'POST',
         body: JSON.stringify({ title, description }),

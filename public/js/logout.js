@@ -1,8 +1,7 @@
-// const logoutButton = document.getElementById("logout");
+//logout
 
 const logout = async (event) => {
     event.preventDefault();
-    console.log("click!");
     try {
         const res = await fetch('/api/logout', {
             method: 'POST',
@@ -10,13 +9,16 @@ const logout = async (event) => {
         });
 
         if (res.ok) {
+            //load the homepage after successful logout
             document.location.replace('/');
         } else {
             alert(res.statusText)
         }
+        //error handling
     } catch (error) {
         res.status(500).json(error);
     }
 };
 
+//event listener for logout button
 document.getElementById('logout-button').addEventListener('click', logout);

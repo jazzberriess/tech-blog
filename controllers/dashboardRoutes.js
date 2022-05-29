@@ -1,5 +1,6 @@
+//required modules
 const router = require('express').Router();
-const { User, Blog, Comment } = require('../models');
+const { Blog } = require('../models');
 
 router.get('/', async (req, res) => {
     try {
@@ -27,9 +28,9 @@ router.get('/', async (req, res) => {
     }
 });
 
+//get single blog by id
 router.get('/blog/:id', async (req, res) => {
     try {
-        //if user is logged in, populate their dashboard with their posts
         if (req.session.loggedIn) {
             const userPostData = await Blog.findOne({ where: { id: req.params.id }, raw: true })
             // const userPostData = await Blog.findAll();
@@ -71,6 +72,7 @@ router.post('/blog', async (req, res) => {
     }
 });
 
+//update blog by id
 router.put('/blog/:id', async (req, res) => {
     const user_id = req.session.userId;
     // const id = req.params.id;
@@ -95,6 +97,7 @@ router.put('/blog/:id', async (req, res) => {
     }
 })
 
+//delete blog by id
 router.delete('/blog/:id', async (req, res) => {
     try {
         const destroyBlogPost = await Blog.destroy({
