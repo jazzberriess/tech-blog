@@ -18,7 +18,7 @@ router.get('/:id', async (req, res) => {
 
     const blogComments = blogCommentData.map((comment) => comment.get({ plain: true }));
 
-    const blogPost = getBlog.get({ plain: true });
+    const blogPost = await getBlog.get({ plain: true });
     res.render('blog', {
         blogPost,
         blogComments

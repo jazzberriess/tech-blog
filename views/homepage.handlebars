@@ -1,5 +1,8 @@
 <h1>This is a test</h1>
 
 {{#each blogs as |blog|}}
-<p>{{> blogPartial}}</p>
+<a href="/blog/{{blog.id}}">
+    <h4>{{blog.title}} {{blog.createdAt}}</h4>
+    <p>{{blog.description}}</p>
+</a>
 {{/each}}

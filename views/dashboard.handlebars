@@ -1,8 +1,11 @@
 <h1>This is a test dashboard</h1>
-
 {{#each userPosts as |post|}}
-<p>{{post.title}}</p>
-<p>{{post.description}}</p>
+<a href="/dashboard/blog/{{post.id}}">
+
+    <p>{{post.title}}</p>
+    <p>{{post.description}}</p>
+
+</a>
 {{/each}}
 
 <form class="new-blog-post">

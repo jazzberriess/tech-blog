@@ -1,0 +1,30 @@
+<div>
+    <a href="/dashboard/blog/{{userPostData.id}}">
+        <p>{{userPostData.title}}</p>
+        <p>{{userPostData.description}}</p>
+
+    </a>
+
+</div>
+
+
+
+<form class="update-blog-post">
+    <div class="row">
+        <div class="twelve columns">
+            <label for="blog-title">Your Previous Title</label>
+            <input class="u-full-width" placeholder="A title goes here" id="blog-title-input"
+                value="{{userPostData.title}}">
+        </div>
+        <div class="twelve columns">
+            <label for="blog-content">Your Previous Blog Post Content</label>
+            <textarea class="u-full-width" placeholder="This is the start of something amazing …"
+                id="blog-content-input">{{userPostData.description}}</textarea>
+        </div>
+        <input class="button-primary" type="submit" value="Update">
+    </div>
+</form>
+
+<button id="delete-button">Delete</button>
+
+<script src="../../js/updateblog.js"></script>
