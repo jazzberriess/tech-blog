@@ -17,6 +17,11 @@ header h1 {
     margin-right: 3rem;
 }
 
+/* make the text area vertical resize only */
+textarea {
+    resize: vertical;
+}
+
 footer {
     margin-left: -3rem;
     margin-right: -3rem;
@@ -37,9 +42,10 @@ nav {
     margin-right: 3rem;
 }
 
-.button:hover {
-    background-color: #005f61;
-    border-color: #008083;
+.button:hover,
+.button-primary:hover {
+    background-color: #005f61 !important;
+    border-color: #008083 !important;
     color: #FFFFFF;
 }
 
@@ -61,9 +67,22 @@ li {
     padding: 1rem;
     margin-top: 2rem;
     margin-bottom: 2rem;
-    box-shadow: 0.8rem 0.8rem 0.7rem rgba(11, 0, 71, 0.712);
+    box-shadow: 0.8rem 0.8rem 0.4rem rgba(11, 0, 71, 0.712);
 }
 
 .blog-post-home:nth-of-type(odd) {
     background-color: rgb(214, 248, 228);
+}
+
+.new-blog-form {
+    margin: 4rem;
+    padding: 2rem;
+    background-color: #faab35;
+    border: 2px solid #fd5900;
+}
+
+.button-primary {
+    background-color: #249ea1 !important;
+    border-color: #249ea1 !important;
+    box-shadow: 0.2rem 0.2rem 0.1rem rgba(11, 0, 71, 0.712);
 }
