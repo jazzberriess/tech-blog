@@ -1,12 +1,19 @@
-<p>{{blogPost.title}} by {{blogPost.user.name}}</p>
-<p>{{blogPost.description}}</p>
-<p>Created on: {{format_date blogPost.createdAt}}</p>
+<div class="blog-post-home">
+    <h3>{{blogPost.title}} </br>
+        <span class="tagline">by {{blogPost.user.name}}</span>
+    </h3>
+    <p>{{blogPost.description}}</p>
+    <p>Created on: {{format_date blogPost.createdAt}}</p>
+</div>
 
 {{#each blogComments as |comment|}}
-<a href='/comment/{{comment.id}}'>
+<div class="comment-post">
+
     <p>{{comment.userName}} - {{comment.comment}}</p>
     <p>Comment created on: {{format_date comment.createdAt}}</p>
-</a>
+    <a href='/comment/{{comment.id}}' class="edit-comment">Edit or Delete Comment</a>
+</div>
+
 {{/each}}
 
 <p>Leave a comment!</p>

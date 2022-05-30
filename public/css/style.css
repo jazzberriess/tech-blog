@@ -60,8 +60,9 @@ li {
     display: inline;
 }
 
-/* Blog post styling */
-.blog-post-home {
+/* Blog and comment post styling */
+.blog-post-home,
+.comment-post {
     /* border: 1px solid blue; */
     background-color: rgb(253, 238, 221);
     padding: 1rem;
@@ -70,11 +71,22 @@ li {
     box-shadow: 0.8rem 0.8rem 0.4rem rgba(11, 0, 71, 0.712);
 }
 
-.blog-post-home:nth-of-type(odd) {
+.blog-post-home:nth-of-type(odd),
+.comment-post:nth-of-type(odd) {
     background-color: rgb(214, 248, 228);
 }
 
-.new-blog-form {
+.comment-post {
+    margin-left: 2rem;
+    margin-right: 2rem;
+}
+
+.edit-comment {
+    color: #1988aa
+}
+
+/* form styling */
+form {
     margin: 4rem;
     padding: 2rem;
     background-color: #faab35;
@@ -85,4 +97,24 @@ li {
     background-color: #249ea1 !important;
     border-color: #249ea1 !important;
     box-shadow: 0.2rem 0.2rem 0.1rem rgba(11, 0, 71, 0.712);
+}
+
+/* styling for delete blog options */
+
+.delete-blog {
+    padding: 3rem;
+    margin: 4rem;
+    color: #ffffff;
+    background: #249ea1;
+}
+
+#delete-button {
+    background-color: #faab35 !important;
+    border-color: #008083 !important;
+    color: #000000;
+    box-shadow: 0.2rem 0.2rem 0.1rem rgba(11, 0, 71, 0.712);
+}
+
+#delete-button:hover {
+    background-color: #fd5900 !important;
 }

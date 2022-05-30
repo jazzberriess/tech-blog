@@ -1,13 +1,13 @@
-<div>
+<div class="blog-post-home">
     <a href="/dashboard/blog/{{userPostData.id}}">
-        <p>{{userPostData.title}}</p>
-        <p>{{userPostData.description}}</p>
-
+        <h3>{{userPostData.title}}</h3>
     </a>
-
+    <p>{{userPostData.description}}</p>
 </div>
 
 <form class="update-blog-post">
+    <p>Need to edit? We've included the title and content of your blog post in the fields below so you can easily fix
+        those pesky typos, or start over again completely. Just click in the input fields and edit away!</p>
     <div class="row">
         <div class="twelve columns">
             <label for="blog-title">Your Previous Title</label>
@@ -22,7 +22,9 @@
         <input class="button-primary" type="submit" value="Update">
     </div>
 </form>
-
-<button id="delete-button">Delete</button>
+<div class="delete-blog">
+    <p>Need to delete your post completely? Just one click and then poff! It'll be gone. Forever.</p>
+    <button id="delete-button">Delete</button>
+</div>
 
 <script src="../../js/updateblog.js"></script>
