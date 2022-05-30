@@ -19,13 +19,13 @@ const hbs = exphbs.create({ defaultLayout: 'main', helpers });
 
 //session set up
 const sess = {
-    secret: process.env.SESS_SECRET,
-    cookie: {},
-    resave: false,
-    saveUninitialized: true,
-    store: new SequelizeStore({
-        db: sequelize
-    })
+  secret: process.env.SESS_SECRET,
+  cookie: {},
+  resave: false,
+  saveUninitialized: true,
+  store: new SequelizeStore({
+    db: sequelize,
+  }),
 };
 
 //middleware for session
@@ -37,11 +37,13 @@ app.set('view engine', 'handlebars');
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname, './public')))
+app.use(express.static(path.join(__dirname, './public')));
 
 app.use(routes);
 
 //sync sequelize
 sequelize.sync({ force: false }).then(() => {
-    app.listen(PORT, () => console.log(`Houston we're live! Listening on port ${PORT}`));
+  app.listen(PORT, () =>
+    console.log(`Houston we're live! Listening on port ${PORT}`)
+  );
 });

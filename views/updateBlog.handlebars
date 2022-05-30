@@ -1,32 +1,38 @@
-<div class="blog-post-home">
-    <a href="/dashboard/blog/{{userPostData.id}}">
-        <h3>{{userPostData.title}}</h3>
-    </a>
-    <p>{{userPostData.description}}</p>
-</div>
-
-<form class="update-blog-post">
-    <p>Need to edit? We've included the title and content of your blog post in the fields below so you can easily
-        fix
-        those pesky typos, or start over again completely. Just click in the input fields and edit away!</p>
-    <div class="row">
-        <div class="twelve columns">
-            <label for="blog-title">Your Previous Title</label>
-            <input class="u-full-width" placeholder="A title goes here" id="blog-title-input"
-                value="{{userPostData.title}}">
-        </div>
-        <div class="twelve columns">
-            <label for="blog-content">Your Previous Blog Post Content</label>
-            <textarea class="u-full-width" placeholder="This is the start of something amazing …"
-                id="blog-content-input">{{userPostData.description}}</textarea>
-        </div>
-        <input class="button-primary" type="submit" value="Update">
+<section>
+    <div class="blog-post-home">
+        <a href="/dashboard/blog/{{userPostData.id}}">
+            <h3>{{userPostData.title}}</h3>
+        </a>
+        <p class="date-stamp">{{userPostData.description}}</p>
     </div>
-</form>
+</section>
 
-<div class="delete-blog">
-    <p>Need to delete your post completely? Just one click and then poff! It'll be gone. Forever.</p>
-    <button id="delete-button">Delete</button>
-</div>
+<section>
+    <form class="update-blog-post">
+        <p>Need to edit? We've included the title and content of your blog post in the fields below so you can easily
+            fix
+            those pesky typos, or start over again completely. Just click in the input fields and edit away!</p>
+        <div class="row">
+            <div class="twelve columns">
+                <label for="blog-title">Your Previous Title</label>
+                <input class="u-full-width" placeholder="A title goes here" id="blog-title-input"
+                    value="{{userPostData.title}}">
+            </div>
+            <div class="twelve columns">
+                <label for="blog-content">Your Previous Blog Post Content</label>
+                <textarea class="u-full-width" placeholder="This is the start of something amazing …"
+                    id="blog-content-input">{{userPostData.description}}</textarea>
+            </div>
+            <input class="button-primary" type="submit" value="Update">
+        </div>
+    </form>
+</section>
+
+<section>
+    <div class="delete-blog">
+        <p>Need to delete your post completely? Just one click and then poff! It'll be gone. Forever.</p>
+        <button id="delete-button">Delete</button>
+    </div>
+</section>
 
 <script src="../../js/updateblog.js"></script>

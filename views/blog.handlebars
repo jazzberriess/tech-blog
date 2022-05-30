@@ -1,32 +1,36 @@
-<div class="blog-post-home">
-    <h3>{{blogPost.title}} </br>
-        <span class="tagline">by {{blogPost.user.name}}</span>
-    </h3>
-    <p>{{blogPost.description}}</p>
-    <p>Created on: {{format_date blogPost.createdAt}}</p>
-</div>
-
-{{#each blogComments as |comment|}}
-<div class="comment-post">
-
-    <p>{{comment.userName}} says: </p>
-    <p>{{comment.comment}}</p>
-    <p class="date-stamp">Comment created/updated on: {{format_date comment.updatedAt}}</p>
-    <a href='/comment/{{comment.id}}' class="edit-comment">Edit or Delete Comment</a>
-</div>
-{{/each}}
-
-<form class="comment-form">
-    <p>Leave a comment!</p>
-    <div class="row">
-        <div class="six columns">
-            <label for="commentUserName">Your name</label>
-            <input class="u-full-width" type="text" placeholder="Your cool username" id="user-name-input">
-            <label for="comment-text">Comment</label>
-            <textarea class="u-full-width" placeholder="What a great post …" id="comment-text"></textarea>
-        </div>
+<section>
+    <div class="blog-post-home">
+        <h3>{{blogPost.title}} </br>
+            <span class="tagline">by {{blogPost.user.name}}</span>
+        </h3>
+        <p>{{blogPost.description}}</p>
+        <p class="date-stamp">Created on: {{format_date blogPost.createdAt}}</p>
     </div>
-    <input class="button-primary" type="submit" value="Submit">
-</form>
+</section>
 
+<section>
+    {{#each blogComments as |comment|}}
+    <div class="comment-post">
+
+        <p>{{comment.userName}} says: </p>
+        <p>{{comment.comment}}</p>
+        <p class="date-stamp">Comment created/updated on: {{format_date comment.updatedAt}}</p>
+        <a href='/comment/{{comment.id}}' class="edit-comment">Edit or Delete Comment</a>
+    </div>
+    {{/each}}
+</section>
+<section>
+    <form class="comment-form">
+        <p>Leave a comment!</p>
+        <div class="row">
+            <div class="twelve columns">
+                <label for="commentUserName">Your name</label>
+                <input class="u-full-width" type="text" placeholder="Your cool username" id="user-name-input">
+                <label for="comment-text">Comment</label>
+                <textarea class="u-full-width" placeholder="What a great post …" id="comment-text"></textarea>
+            </div>
+        </div>
+        <input class="button-primary" type="submit" value="Submit">
+    </form>
+</section>
 <script src="../js/comments.js"></script>

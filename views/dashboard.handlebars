@@ -1,26 +1,30 @@
-{{#each userPosts as |post|}}
-<div class="blog-post-home">
-    <a href="/dashboard/blog/{{post.id}}">
-        <h3>{{post.title}}</h3>
-    </a>
-    <p>{{post.description}}</p>
-    <p class="date-stamp">Posted on {{format_date post.createdAt}}</p>
-</div>
-{{/each}}
-
-<form>
-    <div class="row">
-        <div class="twelve columns">
-            <label for="blog-title">Awesome Title Here</label>
-            <input class="u-full-width" placeholder="A title goes here" id="blog-title-input">
-        </div>
-        <div class="twelve columns">
-            <label for="blog-content">Your Amazing Blog Post Here</label>
-            <textarea class="u-full-width" placeholder="This is the start of something amazing …"
-                id="blog-content-input"></textarea>
-        </div>
-        <input class="button-primary" type="submit" value="Submit">
+<section>
+    {{#each userPosts as |post|}}
+    <div class="blog-post-home">
+        <a href="/dashboard/blog/{{post.id}}">
+            <h3>{{post.title}}</h3>
+        </a>
+        <p>{{post.description}}</p>
+        <p class="date-stamp">Posted on {{format_date post.createdAt}}</p>
     </div>
-</form>
+    {{/each}}
+    <section>
 
-<script src="./js/newblog.js"></script>
+        <section>
+            <form>
+                <div class="row">
+                    <div class="twelve columns">
+                        <label for="blog-title">Awesome Title Here</label>
+                        <input class="u-full-width" placeholder="A title goes here" id="blog-title-input">
+                    </div>
+                    <div class="twelve columns">
+                        <label for="blog-content">Your Amazing Blog Post Here</label>
+                        <textarea class="u-full-width" placeholder="This is the start of something amazing …"
+                            id="blog-content-input"></textarea>
+                    </div>
+                    <input class="button-primary" type="submit" value="Submit">
+                </div>
+            </form>
+        </section>
+
+        <script src="./js/newblog.js"></script>
