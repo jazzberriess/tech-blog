@@ -1,15 +1,17 @@
 <div>
     <form class="form register-form">
+        <h3>Sign up</h3>
         <div class="row">
-            <div class="four columns">
+            <div class="twelve columns">
                 <label for="username-register">Your Username</label>
-                <input class="u-full-width" type="text" id="username-register">
+                <input class="u-full-width" type="text" placeholder="Everyone sees this so make it something you like."
+                    id="username-register">
             </div>
-            <div class="four columns">
+            <div class="twelve columns">
                 <label for="email-register">Email</label>
                 <input class="u-full-width" type="email" placeholder="mail@email.com" id="email-register">
             </div>
-            <div class="four columns">
+            <div class="twelve columns">
                 <label for="password-input">Password</label>
                 <input class="u-full-width" type="password" placeholder="Enter your password here"
                     id="password-register">
@@ -17,9 +19,10 @@
 
             <input class="button-primary" type="submit" value="Submit">
         </div>
+        <a href="/login" class="signup-login-link">Want to Login instead?</a>
+
     </form>
 </div>
 
-<a href="/login">Want to Login instead?</a>
 
 <script src="./js/signup.js"></script>

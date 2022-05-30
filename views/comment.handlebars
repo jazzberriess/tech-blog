@@ -1,17 +1,26 @@
-<p>{{userCommentData.userName}} - {{userCommentData.comment}}</p>
-<p>Comment created on: {{format_date userCommentData.createdAt}}</p>
+<div class="comment-post">
+    <p>{{userCommentData.userName}} says:</p>
+    <p>
+        {{userCommentData.comment}}
+    </p>
+    <p class="date-stamp">Comment created/updated on: {{format_date userCommentData.updatedAt}}</p>
+</div>
 
 <form class="update-comment">
+    <p>Oops! Made a typo? Fix it up below!</p>
     <div class="row">
         <div class="twelve columns">
             <label for="comment-content">Your Updated Comment</label>
             <textarea class="u-full-width" placeholder="This is the start of something amazing …"
-                id="updated-comment">Updated comment goes here</textarea>
+                id="updated-comment">{{userCommentData.comment}}</textarea>
         </div>
         <input class="button-primary" type="submit" value="Update">
     </div>
 </form>
 
-<button id="delete-button">Delete</button>
+<div class="delete-blog">
+    <p>Said something you horribly regret? Delete it here and remember to play nicely next time!</p>
+    <button id="delete-button">Delete</button>
+</div>
 
 <script src="../js/updatecomments.js"></script>

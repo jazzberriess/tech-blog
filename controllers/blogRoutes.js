@@ -5,6 +5,10 @@ const { Blog, User, Comment } = require('../models');
 //get blogs by id and include comments
 router.get('/:id', async (req, res) => {
 
+    if (!req.session.loggedIn) {
+        res.redirect('/login');
+    }
+
     const getBlog = await Blog.findByPk(req.params.id, {
         include: [{
             model: User,

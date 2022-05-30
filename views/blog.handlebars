@@ -9,15 +9,15 @@
 {{#each blogComments as |comment|}}
 <div class="comment-post">
 
-    <p>{{comment.userName}} - {{comment.comment}}</p>
-    <p>Comment created on: {{format_date comment.createdAt}}</p>
+    <p>{{comment.userName}} says: </p>
+    <p>{{comment.comment}}</p>
+    <p class="date-stamp">Comment created/updated on: {{format_date comment.updatedAt}}</p>
     <a href='/comment/{{comment.id}}' class="edit-comment">Edit or Delete Comment</a>
 </div>
-
 {{/each}}
 
-<p>Leave a comment!</p>
 <form class="comment-form">
+    <p>Leave a comment!</p>
     <div class="row">
         <div class="six columns">
             <label for="commentUserName">Your name</label>

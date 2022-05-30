@@ -85,6 +85,12 @@ li {
     color: #1988aa
 }
 
+.date-stamp {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
 /* form styling */
 form {
     margin: 4rem;
@@ -117,4 +123,12 @@ form {
 
 #delete-button:hover {
     background-color: #fd5900 !important;
+}
+
+.signup-login-link {
+    color: #003b32;
+}
+
+.signup-login-link:hover {
+    color: rgb(253, 250, 247)
 }
