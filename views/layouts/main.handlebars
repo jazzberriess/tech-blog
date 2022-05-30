@@ -8,18 +8,30 @@
     <title>Tech Blog of Awesome</title>
     <link rel="stylesheet" href="../../css/normalize.css">
     <link rel="stylesheet" href="../../css/skeleton.css">
+    <link rel="stylesheet" href="../../css/style.css">
 </head>
 <header>
-    <h1>Tech Blog</h1>
+    <h1>Tech Blog </br>
+        <span class="tagline">A place to share anything and everything tech-related!</span>
+    </h1>
     <nav>
-        <a href="/">Home</a>
-        {{#if loggedIn}}
-        <button id="logout-button">Logout</button>
-        {{else}}
-        <a href="/login">Login</a>
-        {{/if}}
-        <a href="/dashboard">Dashboard</a>
-        {{!-- INSERT SOME NAV STUFF HERE --}}
+        <ul>
+            <li>
+                <a href="/" class="button">Home</a>
+            </li>
+            <li>
+                {{#if loggedIn}}
+                <button class="button" id="logout-button">Logout</button>
+                {{else}}
+            </li>
+            <li>
+                <a href="/login" class="button">Login</a>
+                {{/if}}
+            </li>
+            <li>
+                <a href="/dashboard" class="button">Dashboard</a>
+            </li>
+        </ul>
     </nav>
 </header>
 
@@ -30,7 +42,7 @@
 
     </main>
     <footer>
-
+        &copy; Christi Scappatura 2022
     </footer>
     {{!-- script for logged in users only --}}
     {{#if loggedIn}}
