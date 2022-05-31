@@ -10,16 +10,12 @@ router.post('/new-user', async (req, res) => {
     const userData = await User.create({
       name: req.body.name,
       email: req.body.email,
-      // password: await bcrypt.hash(req.body.password, 10),
       password: req.body.password,
     });
-    console.log(userData);
     req.session.save(() => {
       req.session.userId = userData.id;
       req.session.loggedIn = true;
-      res.status(200).json({ userData, message: 'You are now logged in!' });
-      console.log(req.session);
-      console.log(req.session.loggedIn);
+      res.status(200).json({ message: 'You are now logged in!' });
     });
   } catch (error) {
     console.log(error);
@@ -30,9 +26,7 @@ router.post('/new-user', async (req, res) => {
 //log in route
 router.post('/login', async (req, res) => {
   try {
-    const userData = await User.findOne({ where: { email: req.body.email } });
-    console.log(userData);
-
+    const userData = await User.scope('withPassword').findOne({ where: { email: req.body.email } });
     if (!userData) {
       res
         .status(400)
@@ -45,14 +39,10 @@ router.post('/login', async (req, res) => {
       userData.password
     );
 
-    console.log(req.body.password);
-    console.log(userData.password);
-    console.log(passwordVal);
-
     if (!passwordVal) {
       res
         .status(400)
-        .json({ message: 'Invalid username or password. Please try again.' });
+        .json({message: 'Invalid username or password. Please try again.' });
       return;
     }
 
@@ -60,7 +50,7 @@ router.post('/login', async (req, res) => {
       req.session.userId = userData.id;
       req.session.loggedIn = true;
 
-      res.status(200).json({ userData, message: 'You are now logged in!' });
+      res.status(200).json({message: 'You are now logged in!' });
     });
   } catch (error) {
     res.status(400).json(error);

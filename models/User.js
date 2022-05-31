@@ -33,13 +33,22 @@ User.init(
       allowNull: false,
       validate: {
         len: [8],
-      },
-    },
+      }
+    }
   },
   {
     hooks: {
       async beforeCreate(newUserData) {
         newUserData.password = await bcrypt.hash(newUserData.password, 10);
+      }
+    },
+    //How to exclude password: https://stackoverflow.com/questions/27972271/sequelize-dont-return-password
+    defaultScope :{
+      attributes: {exclude: ['password']}
+    },
+    scopes: {
+      withPassword: {
+        attributes: {}
       },
     },
     //I think you need hooks here???
