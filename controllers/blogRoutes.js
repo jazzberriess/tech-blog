@@ -18,11 +18,18 @@ router.get('/:id', userAuth, async (req, res) => {
     //include comments where their blog id is equal to the request parameters
     const blogCommentData = await Comment.findAll({
       where: { blog_id: req.params.id },
+      include: [
+        {
+          model: User,
+          attributes: ['name'],
+        },
+      ],
     });
 
     const blogComments = blogCommentData.map((comment) =>
       comment.get({ plain: true })
     );
+    console.log(blogComments);
     //render the blog post and comments
     const blogPost = await getBlog.get({ plain: true });
     const loggedIn = req.session.loggedIn;

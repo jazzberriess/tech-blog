@@ -1,6 +1,6 @@
 //required modules
 const router = require('express').Router();
-const { Comment } = require('../models');
+const { User, Comment } = require('../models');
 const userAuth = require('../utils/authentication');
 
 //post route for comments
@@ -8,11 +8,10 @@ router.post('/', userAuth, async (req, res) => {
 
   try {
     const user_id = req.session.userId;
-    const { userName, comment, blog_id } = req.body;
+    const { comment, blog_id } = req.body;
 
     const blogComment = await Comment.create({
       user_id,
-      userName,
       comment,
       blog_id,
     });
@@ -28,21 +27,29 @@ router.post('/', userAuth, async (req, res) => {
 router.get('/:id', userAuth, async (req, res) => {
 
   try {
+    const loggedIn = req.session.loggedIn;
+
     const userCommentData = await Comment.findOne({
       where: { id: req.params.id },
-      raw: true,
+      include: [
+        {
+          model: User,
+          attributes: ['name'],
+
+        },
+      ],
     });
-    const loggedIn = req.session.loggedIn;
+
+    const plainCommentData = userCommentData.get({ plain: true });
 
     return res.render('comment', {
       loggedIn,
-      userCommentData,
+      plainCommentData,
     });
   } catch (error) {
     res.status(500).json(error);
     console.error(error);
   }
-
 });
 
 //update comment by id

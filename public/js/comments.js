@@ -3,14 +3,14 @@ const commentHandler = async (event) => {
   event.preventDefault();
 
   try {
-    const userName = document.getElementById('user-name-input').value.trim();
+    // const userName = document.getElementById('user-name-input').value.trim();
     const comment = document.getElementById('comment-text').value.trim();
     //get the darn blog_id from the URL by splitting to string and grabbing the last element from the array using pop
     const blog_id = window.location.toString().split('/').pop();
 
     const res = await fetch('/comment', {
       method: 'POST',
-      body: JSON.stringify({ userName, comment, blog_id }),
+      body: JSON.stringify({ comment, blog_id }),
       headers: { 'Content-Type': 'application/json' },
     });
 

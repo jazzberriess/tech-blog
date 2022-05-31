@@ -62,7 +62,14 @@ You can then make posts etc in your browser at the localhost URL.
 ## Live Demo
 You can checkout the live application over at [salty-citadel on Heroku](https://salty-citadel-76451.herokuapp.com).
 
+### Screenshot of the homepage:
+![Static image of the application's homepage](/public/images/homepage.png)
 
+### Screenshot of the signup page:
+![Static image of the application's signup page](/public/images/signup.png)
+
+### Gif of the sign-up and make comment pages:
+![Animated gif of the application's login, signup and comment pages](/public/images/signup-and-comment-demo.gif)
 
 ## Resources
 * [What is the Secret Key in express-session](https://forum.freecodecamp.org/t/what-is-the-secret-key-in-express-session/354972)

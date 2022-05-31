@@ -1,11 +1,11 @@
 {{!-- show comment --}}
 <section>
     <div class="comment-post">
-        <p>{{userCommentData.userName}} says:</p>
+        <p>{{plainCommentData.user.name}} says:</p>
         <p class="indent">
-            {{userCommentData.comment}}
+            {{plainCommentData.comment}}
         </p>
-        <p class="date-stamp">Comment created/updated on: {{format_date userCommentData.updatedAt}}</p>
+        <p class="date-stamp">Comment created/updated on: {{format_date plainCommentData.updatedAt}}</p>
     </div>
 </section>
 
@@ -18,7 +18,7 @@
             <div class="twelve columns">
                 <label for="comment-content">Your Updated Comment</label>
                 <textarea class="u-full-width" placeholder="This is the start of something amazing …"
-                    id="updated-comment">{{userCommentData.comment}}</textarea>
+                    id="updated-comment">{{plainCommentData.comment}}</textarea>
             </div>
             <input class="button-primary" type="submit" value="Update">
         </div>

@@ -13,6 +13,11 @@ User.hasMany(Comment, {
   onDelete: 'SET NULL',
 });
 
+Comment.belongsTo(User, {
+  foreignKey: 'user_id',
+  onDelete: 'SET NULL',
+});
+
 Blog.belongsTo(User, {
   foreignKey: 'user_id',
 });

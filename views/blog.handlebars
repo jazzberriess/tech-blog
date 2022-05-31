@@ -14,7 +14,7 @@
     {{#each blogComments as |comment|}}
     <div class="comment-post">
 
-        <p>{{comment.userName}} says: </p>
+        <p>{{comment.user.name}} says: </p>
         <p class="indent">{{comment.comment}}</p>
         <p class="date-stamp">Comment created/updated on: {{format_date comment.updatedAt}}</p>
         <a href='/comment/{{comment.id}}' class="edit-comment">Edit or Delete Comment</a>
@@ -28,8 +28,8 @@
         <p class="comment-header">Got something to add? Leave a comment!</p>
         <div class="row">
             <div class="twelve columns">
-                <label for="commentUserName">Your name</label>
-                <input class="u-full-width" type="text" placeholder="Your cool username" id="user-name-input">
+                {{!-- <label for="commentUserName">Your name</label>
+                <input class="u-full-width" type="text" placeholder="Your cool username" id="user-name-input"> --}}
                 <label for="comment-text">Comment</label>
                 <textarea class="u-full-width" placeholder="What a great post …" id="comment-text"></textarea>
             </div>

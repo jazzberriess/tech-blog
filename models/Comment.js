@@ -12,10 +12,13 @@ Comment.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    userName: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
+    // userName: {
+    //   type: DataTypes.STRING,
+    //   references: {
+    //     model: 'user',
+    //     key: 'name',
+    //   }
+    // },
     comment: {
       type: DataTypes.STRING,
       allowNull: false,
