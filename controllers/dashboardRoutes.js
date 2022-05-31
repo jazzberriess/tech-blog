@@ -51,6 +51,19 @@ router.get('/blog/:id', async (req, res) => {
   }
 });
 
+//render create blog post page after clicking the create button
+router.get('/blog', async (req, res) => {
+  try {
+    const loggedIn = req.session.loggedIn;
+    res.render('newblogpost', {
+      loggedIn,
+    });
+  } catch (error) {
+    res.status(500).json(error);
+    console.error(error);
+  }
+});
+
 //create new blog post
 router.post('/blog', async (req, res) => {
 

@@ -56,6 +56,7 @@ router.put('/:id', async (req, res) => {
   try {
     const user_id = req.session.userId;
     const { comment } = req.body;
+
     const updateComment = await Comment.update(
       {
         comment,

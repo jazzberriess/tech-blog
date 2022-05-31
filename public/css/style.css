@@ -112,7 +112,8 @@ li {
 }
 
 /* form styling */
-form {
+form,
+.create-blog {
     margin: 4rem;
     padding: 2rem;
     background-color: #faab35;
@@ -126,6 +127,7 @@ form {
 }
 
 /* styling for delete blog options */
+
 .delete-blog {
     padding: 3rem;
     margin: 4rem;
