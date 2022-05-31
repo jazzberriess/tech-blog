@@ -71,6 +71,7 @@ You can then make posts etc in your browser at the localhost URL.
 * [Getting the last element of a split string array](https://stackoverflow.com/questions/651563/getting-the-last-element-of-a-split-string-array)
 * [Handlebars Documentation](https://handlebarsjs.com/guide/#what-is-handlebars)
 * [Deploy with Heroku and MySQL](https://coding-boot-camp.github.io/full-stack/heroku/deploy-with-heroku-and-mysql)
+* [Heroku giving 500 error](https://stackoverflow.com/questions/46021463/heroku-giving-500-error-with-little-information-internal-server-error)
 * Week 14 class notes and recordings
 
 ## License
