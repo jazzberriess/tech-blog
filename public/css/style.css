@@ -79,7 +79,7 @@ li {
 
 /* alternating colours for blog and comment divs */
 .blog-post-home:nth-of-type(odd),
-.comment-post:nth-of-type(odd) {
+.comment-post:nth-of-type(even) {
     background-color: rgb(214, 248, 228);
 }
 

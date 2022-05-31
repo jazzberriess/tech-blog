@@ -33,9 +33,9 @@ This application was built using the following technologies and languages:
 * Deployed on [Heroku](https://heroku.com/)
 
 ## Installation
-Since this application is deployed on Heroku, there's no need to download and install anything.
+Since this [application is deployed on Heroku](https://salty-citadel-76451.herokuapp.com), there's no need to download and install anything.
 
-But if you wanted to, clone the repo and then install the dependencies. To install the dependencies included in this repo, navigate to the root directory of the cloned or downloaded repo. In either your terminal, command line or using the integrated terminal in your code editor of choice, enter the following command:
+But if you wanted to, [clone the Tech Blog repo](https://salty-citadel-76451.herokuapp.com) and then install the dependencies. To install the dependencies included in this repo, navigate to the root directory of the cloned or downloaded repo. In either your terminal, command line or using the integrated terminal in your code editor of choice, enter the following command:
 
 `npm i`
 
@@ -58,6 +58,11 @@ Next, to begin the application enter:
 `npm start`
 
 You can then make posts etc in your browser at the localhost URL.
+
+## Live Demo
+You can checkout the live application over at [salty-citadel on Heroku](https://salty-citadel-76451.herokuapp.com).
+
+
 
 ## Resources
 * [What is the Secret Key in express-session](https://forum.freecodecamp.org/t/what-is-the-secret-key-in-express-session/354972)
