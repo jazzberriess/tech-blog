@@ -4,8 +4,8 @@ const { Blog } = require('../models');
 
 const blogData = [
   {
-    title: 'Test Blog Post',
-    description: "This is a test blog post because things weren't working.",
+    title: 'Hello World',
+    description: 'This is my first blog post! How exciting! I built this application all on my own.',
     user_id: '1',
   },
 ];
