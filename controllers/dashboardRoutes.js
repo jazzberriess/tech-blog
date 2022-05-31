@@ -53,11 +53,16 @@ router.get('/blog/:id', async (req, res) => {
 
 //render create blog post page after clicking the create button
 router.get('/blog', async (req, res) => {
+
   try {
-    const loggedIn = req.session.loggedIn;
-    res.render('newblogpost', {
-      loggedIn,
-    });
+    if (req.session.loggedIn) {
+      const loggedIn = req.session.loggedIn;
+      res.render('newblogpost', {
+        loggedIn,
+      });
+    } else {
+      res.redirect('/login');
+    }
   } catch (error) {
     res.status(500).json(error);
     console.error(error);
@@ -68,14 +73,18 @@ router.get('/blog', async (req, res) => {
 router.post('/blog', async (req, res) => {
 
   try {
-    const user_id = req.session.userId;
-    const { title, description } = req.body;
-    const newBlogPost = await Blog.create({
-      title,
-      description,
-      user_id,
-    });
-    res.status(200).json(newBlogPost);
+    if (req.session.loggedIn) {
+      const user_id = req.session.userId;
+      const { title, description } = req.body;
+      const newBlogPost = await Blog.create({
+        title,
+        description,
+        user_id,
+      });
+      res.status(200).json(newBlogPost);
+    } else {
+      res.redirect('/login');
+    }
   } catch (error) {
     res.status(500).json(error);
     console.error(error);
@@ -86,22 +95,26 @@ router.post('/blog', async (req, res) => {
 router.put('/blog/:id', async (req, res) => {
 
   try {
-    const user_id = req.session.userId;
-    const { title, description } = req.body;
-    const updateBlogPost = await Blog.update(
-      {
-        title,
-        description,
-        user_id,
-      },
-      {
-        where: {
-          id: req.params.id,
+    if (req.session.loggedIn) {
+      const user_id = req.session.userId;
+      const { title, description } = req.body;
+      const updateBlogPost = await Blog.update(
+        {
+          title,
+          description,
+          user_id,
         },
-      }
-    );
-    res.status(200).json(updateBlogPost);
-    console.log(updateBlogPost);
+        {
+          where: {
+            id: req.params.id,
+          },
+        }
+      );
+      res.status(200).json(updateBlogPost);
+      console.log(updateBlogPost);
+    } else {
+      res.redirect('/login');
+    }
   } catch (error) {
     res.status(500).json(error);
     console.log(error);
@@ -110,13 +123,18 @@ router.put('/blog/:id', async (req, res) => {
 
 //delete blog by id
 router.delete('/blog/:id', async (req, res) => {
+
   try {
-    const destroyBlogPost = await Blog.destroy({
-      where: {
-        id: req.params.id,
-      },
-    });
-    res.status(200).json(destroyBlogPost);
+    if (req.session.loggedIn) {
+      const destroyBlogPost = await Blog.destroy({
+        where: {
+          id: req.params.id,
+        },
+      });
+      res.status(200).json(destroyBlogPost);
+    } else {
+      res.redirect('/login');
+    }
   } catch (error) {
     res.status(400).json(error);
     console.error(error);
