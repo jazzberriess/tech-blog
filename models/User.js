@@ -1,3 +1,4 @@
+//required modules
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 const bcrypt = require('bcrypt');
@@ -43,8 +44,8 @@ User.init(
       }
     },
     //How to exclude password: https://stackoverflow.com/questions/27972271/sequelize-dont-return-password
-    defaultScope :{
-      attributes: {exclude: ['password']}
+    defaultScope: {
+      attributes: { exclude: ['password'] }
     },
     scopes: {
       withPassword: {

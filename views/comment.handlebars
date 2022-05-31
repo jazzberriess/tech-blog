@@ -1,16 +1,19 @@
+{{!-- show comment --}}
 <section>
     <div class="comment-post">
         <p>{{userCommentData.userName}} says:</p>
-        <p>
+        <p class="indent">
             {{userCommentData.comment}}
         </p>
         <p class="date-stamp">Comment created/updated on: {{format_date userCommentData.updatedAt}}</p>
     </div>
 </section>
 
+{{!-- Edit comment --}}
 <section>
     <form class="update-comment">
-        <p>Oops! Made a typo? Fix it up below!</p>
+        <p class="comment-header">Oops! Made a typo?</p>
+        <p>Fix it up below!</p>
         <div class="row">
             <div class="twelve columns">
                 <label for="comment-content">Your Updated Comment</label>
@@ -22,9 +25,11 @@
     </form>
 </section>
 
+{{!-- delete comment --}}
 <section>
     <div class="delete-blog">
-        <p>Said something you horribly regret? Delete it here and remember to play nicely next time!</p>
+        <p class="comment-header">Said something you horribly regret?</p>
+        <p>Delete it here and remember to play nicely next time!</p>
         <button id="delete-button">Delete</button>
     </div>
 </section>

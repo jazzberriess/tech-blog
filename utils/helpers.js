@@ -1,3 +1,4 @@
+// helper to format the date on datestamps
 module.exports = {
   format_date: (date) => {
     const dateOptions = {

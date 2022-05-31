@@ -1,3 +1,5 @@
+//setting up sequelize for seed data
+
 const sequelize = require('../config/connection');
 const seedBlog = require('./seedBlog');
 const seedUser = require('./seedUser');

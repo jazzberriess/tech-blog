@@ -18,8 +18,8 @@ router.post('/new-user', async (req, res) => {
       res.status(200).json({ message: 'You are now logged in!' });
     });
   } catch (error) {
-    console.log(error);
     res.status(500).json(error);
+    console.error(error);
   }
 });
 
@@ -54,7 +54,7 @@ router.post('/login', async (req, res) => {
     });
   } catch (error) {
     res.status(400).json(error);
-    console.log(error);
+    console.error(error);
   }
 });
 

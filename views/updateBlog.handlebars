@@ -1,3 +1,4 @@
+{{!-- blog post --}}
 <section>
     <div class="blog-post-home">
         <a href="/dashboard/blog/{{userPostData.id}}">
@@ -7,9 +8,13 @@
     </div>
 </section>
 
+{{!-- update blog post form --}}
 <section>
     <form class="update-blog-post">
-        <p>Need to edit? We've included the title and content of your blog post in the fields below so you can easily
+        <p class="comment-header">Need to edit?</p>
+        <p>We've included the title and content of your blog post in the fields
+            below
+            so you can easily
             fix
             those pesky typos, or start over again completely. Just click in the input fields and edit away!</p>
         <div class="row">
@@ -28,9 +33,11 @@
     </form>
 </section>
 
+{{!-- delete post --}}
 <section>
     <div class="delete-blog">
-        <p>Need to delete your post completely? Just one click and then poff! It'll be gone. Forever.</p>
+        <p class="comment-header">Need to delete your post completely?</p>
+        <p>Just one click and then poff! It'll be gone. Forever.</p>
         <button id="delete-button">Delete</button>
     </div>
 </section>

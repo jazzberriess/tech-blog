@@ -17,6 +17,7 @@ const logout = async (event) => {
     //error handling
   } catch (error) {
     res.status(500).json(error);
+    console.error(error);
   }
 };
 

@@ -1,11 +1,12 @@
+{{!-- blogs --}}
 <section>
     {{#each blogs as |blog|}}
     <div class="blog-post-home">
         <a href="/blog/{{blog.id}}">
             <h4>{{blog.title}}</h4>
         </a>
-        <p>{{blog.description}}</p>
-        <p class="date-stamp">Created on {{format_date blog.createdAt}}</p>
+        <p class="indent">{{blog.description}}</p>
+        <p class="date-stamp">Created on {{format_date blog.createdAt}} by {{blog.user.name}}</p>
     </div>
     {{/each}}
 </section>

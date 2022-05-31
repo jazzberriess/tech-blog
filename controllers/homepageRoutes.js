@@ -1,19 +1,23 @@
 //required modules
 const router = require('express').Router();
-const { Blog } = require('../models');
+const { User, Blog } = require('../models');
 
 //homepage route
 router.get('/', async (req, res) => {
   try {
     //find all blogposts and populate the homepage
-    const blogPosts = await Blog.findAll().catch((error) => {
-      res.json(error);
+    const blogPosts = await Blog.findAll({
+      include: [
+        {
+          model: User,
+          attributes: ['name'],
+        },
+      ]
     });
 
     const blogs = blogPosts.map((blog) => blog.get({ plain: true }));
     const loggedIn = req.session.loggedIn;
-    // console.log(blogs, 'line 18');
-    // console.log(blogs.name);
+
     //pass through the loggedIn status so handlebars can toggle the login/logout buttons, pass through the blogs so blogposts can be rendered
     return res.render('homepage', {
       loggedIn,
@@ -22,6 +26,7 @@ router.get('/', async (req, res) => {
     //error handling
   } catch (error) {
     res.status(500).json(error);
+    console.error(error);
   }
 });
 
@@ -34,7 +39,8 @@ router.get('/login', async (req, res) => {
     }
     res.render('login');
   } catch (error) {
-    console.log(error);
+    res.status(500).json(error);
+    console.error(error);
   }
 });
 
@@ -47,6 +53,7 @@ router.get('/signup', async (req, res) => {
     }
     res.render('signup');
   } catch (error) {
+    res.status(500).json(error);
     console.log(error);
   }
 });

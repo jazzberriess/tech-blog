@@ -1,3 +1,5 @@
+//seed data
+
 const { Blog } = require('../models');
 
 const blogData = [

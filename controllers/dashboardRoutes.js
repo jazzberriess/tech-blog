@@ -9,14 +9,10 @@ router.get('/', async (req, res) => {
       const userPostData = await Blog.findAll({
         where: { user_id: req.session.userId },
       });
-      // const userPostData = await Blog.findAll();
-      console.log(userPostData, 'line 8');
-      console.log(req.session.userId, 'line 10');
 
       const userPosts = userPostData.map((blog) => blog.get({ plain: true }));
       const loggedIn = req.session.loggedIn;
-      console.log(userPosts, 'line 12');
-      console.log(userPosts.title, 'line 14');
+
       return res.render('dashboard', {
         loggedIn,
         userPosts,
@@ -27,7 +23,7 @@ router.get('/', async (req, res) => {
     }
   } catch (error) {
     res.status(500).json(error);
-    console.log(error);
+    console.error(error);
   }
 });
 
@@ -40,13 +36,7 @@ router.get('/blog/:id', async (req, res) => {
         raw: true,
       });
       const loggedIn = req.session.loggedIn;
-      // const userPostData = await Blog.findAll();
-      console.log(userPostData, 'line 8');
-      console.log(req.session.userId, 'line 10');
 
-      // const userPosts = userPostData.map((blog) => blog.get({ plain: true }));
-      // console.log(userPosts, 'line 12');
-      // console.log(userPosts.title, 'line 14');
       return res.render('updateBlog', {
         loggedIn,
         userPostData,
@@ -57,36 +47,34 @@ router.get('/blog/:id', async (req, res) => {
     }
   } catch (error) {
     res.status(500).json(error);
-    console.log(error);
+    console.error(error);
   }
 });
 
 //create new blog post
 router.post('/blog', async (req, res) => {
-  const user_id = req.session.userId;
-  const { title, description } = req.body;
-  console.log(user_id);
 
   try {
+    const user_id = req.session.userId;
+    const { title, description } = req.body;
     const newBlogPost = await Blog.create({
       title,
       description,
       user_id,
     });
     res.status(200).json(newBlogPost);
-    console.log(newBlogPost);
   } catch (error) {
     res.status(500).json(error);
+    console.error(error);
   }
 });
 
 //update blog by id
 router.put('/blog/:id', async (req, res) => {
-  const user_id = req.session.userId;
-  // const id = req.params.id;
-  const { title, description } = req.body;
 
   try {
+    const user_id = req.session.userId;
+    const { title, description } = req.body;
     const updateBlogPost = await Blog.update(
       {
         title,
