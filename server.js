@@ -20,7 +20,10 @@ const hbs = exphbs.create({ defaultLayout: 'main', helpers });
 //session set up
 const sess = {
   secret: process.env.SESS_SECRET,
-  cookie: {},
+  cookie: {
+    // Stored in milliseconds (86400000 === 1 day)
+    maxAge: 24 * 60 * 60 * 1000
+  },
   resave: false,
   saveUninitialized: true,
   store: new SequelizeStore({

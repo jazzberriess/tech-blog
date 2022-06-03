@@ -108,7 +108,7 @@ router.delete('/blog/:id', userAuth, async (req, res) => {
         id: req.params.id,
       },
     });
-    res.status(200).json(destroyBlogPost);
+    res.status(200).end(destroyBlogPost);
   } catch (error) {
     res.status(400).json(error);
     console.error(error);
