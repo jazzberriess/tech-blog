@@ -22,7 +22,7 @@ const sess = {
   secret: process.env.SESS_SECRET,
   cookie: {
     // Stored in milliseconds (86400000 === 1 day)
-    maxAge: 24 * 60 * 60 * 1000
+    // maxAge: 24 * 60 * 60 * 1000
   },
   resave: false,
   saveUninitialized: true,
