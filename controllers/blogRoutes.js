@@ -5,13 +5,14 @@ const userAuth = require('../utils/authentication');
 
 //get blogs by id and include comments
 router.get('/:id', userAuth, async (req, res) => {
+  const verifiedId = req.session.userId;
 
   try {
     const getBlog = await Blog.findByPk(req.params.id, {
       include: [
         {
           model: User,
-          attributes: ['name'],
+          attributes: ['name', 'id'],
         },
       ],
     });
@@ -21,7 +22,7 @@ router.get('/:id', userAuth, async (req, res) => {
       include: [
         {
           model: User,
-          attributes: ['name'],
+          attributes: ['name', 'id'],
         },
       ],
     });
@@ -29,12 +30,13 @@ router.get('/:id', userAuth, async (req, res) => {
     const blogComments = blogCommentData.map((comment) =>
       comment.get({ plain: true })
     );
-    console.log(blogComments);
+
     //render the blog post and comments
     const blogPost = await getBlog.get({ plain: true });
     const loggedIn = req.session.loggedIn;
     res.render('blog', {
       loggedIn,
+      verifiedId,
       blogPost,
       blogComments,
     });
@@ -42,7 +44,6 @@ router.get('/:id', userAuth, async (req, res) => {
     res.status(500).json(error);
     console.error(error);
   }
-
 });
 
 module.exports = router;

@@ -17,7 +17,11 @@
         <p>{{comment.user.name}} says: </p>
         <p class="indent">{{comment.comment}}</p>
         <p class="date-stamp">Comment created/updated on: {{format_date comment.updatedAt}}</p>
+        {{!-- block helper if comment user_id matches logged in user ID, display an edit or delete button --}}
+        {{#verifyUserId ../verifiedId comment.user_id}}
         <a href='/comment/{{comment.id}}' class="edit-comment">Edit or Delete Comment</a>
+        {{else}}
+        {{/verifyUserId}}
     </div>
     {{/each}}
 </section>
