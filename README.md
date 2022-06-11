@@ -11,6 +11,7 @@ A CMS-style tech-centered blog site where registered users can write posts about
 * [Live Demo](#live-demo)
 * [Resources](#resources)
 * [License](#license)
+* [Contact](#contact)
 
 ## Technologies
 This application was built using the following technologies and languages:
@@ -91,3 +92,6 @@ You can checkout the live application over at [salty-citadel on Heroku](https://
 This project is covered under the [MIT license](https://github.com/jazzberriess/employee-management-system/blob/main/LICENSE)
 
 &copy; 2022 Christi Scappatura
+
+## Contact
+Contact [Christi on GitHub](https://github.com/jazzberriess)
